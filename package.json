@@ -1,7 +1,7 @@
 {
-  "name": "node-module-template",
+  "name": "ent-flow",
   "version": "0.0.0",
-  "description": "A description of your module",
+  "description": "Simple util for composing highland streams around a context",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
