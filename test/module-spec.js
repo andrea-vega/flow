@@ -1,19 +1,19 @@
 'use strict';
 
 var should = require('chai').should();
-var lib = require('../');
+var flow = require('../lib');
 
 describe('your module', function () {
     it('should exist', function () {
-        should.exist(lib);
+        should.exist(flow);
     });
 
     it('should compose a stream', function (done) {
-        var stream = lib.create({ foo: 'bar' })
-            .node(function () {
+        var stream = flow.create({ foo: 'bar' })
+            .through(function () {
                 return [{}];
             })
-            .node(function (stream, ctx) {
+            .through(function (stream, ctx) {
                 return stream.doto(function (record) {
                     Object.keys(ctx).forEach(function (key) {
                         record[key] = ctx[key];
@@ -35,11 +35,11 @@ describe('your module', function () {
     });
 
     it('should return a promise to an array', function () {
-        return lib.create()
-            .node(function () {
+        return flow.create()
+            .through(function () {
                 return [{ name: 'Brad' }, { name: 'Hank' }];
             })
-            .node(function (stream) {
+            .through(function (stream) {
                 return stream.doto(function (r) {
                     r.name = r.name.toUpperCase();
                 });
