@@ -26,7 +26,9 @@
     "gulp-mocha": "^2.0.0",
     "gulp-tag-version": "^1.2.1",
     "jshint-stylish": "^1.0.1",
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.1",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0"
   },
   "dependencies": {
     "bluebird": "^2.9.25",
