@@ -22,7 +22,7 @@ describe('Job', function () {
         };
 
         return job
-            .step(fn)
+            .add(fn)
             .flow()
             .toArray()
             .then(function (arr) {
@@ -38,7 +38,7 @@ describe('Job', function () {
         var spy = sinon.spy();
 
         return job
-            .step(fn)
+            .add(fn)
             .on('step', spy)
             .flow()
             .toArray()
@@ -65,9 +65,9 @@ describe('Job', function () {
         };
 
         return job
-            .step(source, 'source')
-            .step(through1, 'full name')
-            .step(through2, 'uppercase')
+            .add({ stream: source, label: 'source' })
+            .add({ stream: through1, label: 'full name'})
+            .add({ stream: through2, label: 'uppercase'})
             .on('step', function () {
                 console.log('\n');
                 job.steps.forEach(function (step, index) {
