@@ -1,6 +1,6 @@
 {
   "name": "ent-flow",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Simple util for composing highland streams around a context",
   "main": "lib/index.js",
   "directories": {
